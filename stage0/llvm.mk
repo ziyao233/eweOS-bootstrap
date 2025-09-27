@@ -19,6 +19,7 @@ $W/stage0.llvm: $W/stage0.llvm.extract
 		-DLLVM_HOST_TRIPLE=$(CHOST)			\
 		-DCLANG_DEFAULT_CXX_STDLIB='libc++'		\
 		-DCLANG_DEFAULT_RTLIB='compiler-rt'		\
+		-DCLANG_DEFAULT_LINKER='lld'			\
 		-DLLVM_INSTALL_UTILS=ON				\
 		-DLLVM_ENABLE_LIBCXX=ON				\
 		-DLLVM_ENABLE_RTTI=ON				\
@@ -28,9 +29,8 @@ $W/stage0.llvm: $W/stage0.llvm.extract
 		-DLLVM_INCLUDE_BENCHMARKS=OFF			\
 		-DLLVM_TARGETS_TO_BUILD=$(LLVMTARGET)		\
 		-DLLVM_ENABLE_PER_TARGET_RUNTIME_DIR=OFF	\
-		-DLLVM_LIBGCC_EXPLICIT_OPT_IN=ON		\
-		-DLLVM_DEFAULT_SYSROOT=$W/sysroot		\
 		-DLLVM_ENABLE_PROJECTS="clang;lld"		\
+		-DDEFAULT_SYSROOT=$(PWD)/$O
 
 	+ cmake --build $W/llvm-build
 	DESTDIR="$W" cmake --install $W/llvm-build

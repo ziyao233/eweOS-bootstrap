@@ -12,6 +12,8 @@ MUSL_V		:= 1.2.5
 MUSL_FILE	:= musl-$(MUSL_V).tar.gz
 NCURSES_V	:= 6.5
 NCURSES_FILE	:= ncurses-$(NCURSES_V).tar.gz
+PKGCONF_V	:= 2.5.1
+PKGCONF_FILE	:= pkgconf-$(PKGCONF_V).tar.gz
 READLINE_V	:= 8.3
 READLINE_FILE	:= readline-$(READLINE_V).tar.gz
 ZLIB_NG_V	:= 2.2.5
@@ -24,6 +26,7 @@ LLVM_URL	:= https://github.com/llvm/llvm-project/archive/refs/tags/$(LLVM_FILE)
 MAKE_URL	:= http://ftpmirror.gnu.org/gnu/make/$(MAKE_FILE)
 MUSL_URL	:= http://www.etalabs.net/musl/releases/$(MUSL_FILE)
 NCURSES_URL	:= http://ftpmirror.gnu.org/gnu/ncurses/$(NCURSES_FILE)
+PKGCONF_URL	:= https://github.com/pkgconf/pkgconf/archive/refs/tags/$(PKGCONF_FILE)
 READLINE_URL	:= http://ftpmirror.gnu.org/gnu/readline/$(READLINE_FILE)
 ZLIB_NG_URL	:= https://github.com/zlib-ng/zlib-ng/archive/refs/tags/$(ZLIB_NG_V).tar.gz
 

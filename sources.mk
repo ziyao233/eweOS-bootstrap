@@ -16,6 +16,8 @@ PKGCONF_V	:= 2.5.1
 PKGCONF_FILE	:= pkgconf-$(PKGCONF_V).tar.gz
 READLINE_V	:= 8.3
 READLINE_FILE	:= readline-$(READLINE_V).tar.gz
+UCONTEXT_V	:= 1.3.2
+UCONTEXT_FILE	:= libucontext-$(UCONTEXT_V).tar.xz
 ZLIB_NG_V	:= 2.2.5
 ZLIB_NG_FILE	:= zlib-ng-$(ZLIB_NG_V).tar.gz
 
@@ -28,6 +30,7 @@ MUSL_URL	:= http://www.etalabs.net/musl/releases/$(MUSL_FILE)
 NCURSES_URL	:= http://ftpmirror.gnu.org/gnu/ncurses/$(NCURSES_FILE)
 PKGCONF_URL	:= https://github.com/pkgconf/pkgconf/archive/refs/tags/$(PKGCONF_FILE)
 READLINE_URL	:= http://ftpmirror.gnu.org/gnu/readline/$(READLINE_FILE)
+UCONTEXT_URL	:= https://distfiles.dereferenced.org/libucontext/$(UCONTEXT_FILE)
 ZLIB_NG_URL	:= https://github.com/zlib-ng/zlib-ng/archive/refs/tags/$(ZLIB_NG_V).tar.gz
 
 $W/%.download:

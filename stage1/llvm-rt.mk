@@ -41,3 +41,29 @@ $W/stage1.compiler-rt: \
 		$(S0DIR)/lib/clang/20/lib
 
 	$(call done)
+
+$W/stage1.cxx-runtime: $W/stage1.llvm.extract \
+	$W/stage1.c-runtime $W/stage1.linux-uapi-headers
+	$(call s1) cmake -S $W/llvm-project-llvmorg-$(LLVM_V)/runtimes \
+		-B $W/llvm-runtime-build -G Ninja			\
+		-DCMAKE_TOOLCHAIN_FILE=$(AW)/cmake-conf.cmake		\
+		-DCMAKE_BUILD_TYPE=Release				\
+		-DCMAKE_INSTALL_PREFIX=/usr				\
+		-DCMAKE_INSTALL_LIBEXECDIR=bin				\
+		-DCMAKE_CXX_FLAGS='-D_LARGEFILE64_SOURCE'		\
+		-DLIBCXX_HAS_MUSL_LIBC=ON				\
+		-DLIBCXX_USE_COMPILER_RT=ON				\
+		-DLIBCXX_INCLUDE_TESTS=OFF				\
+		-DLIBCXX_INCLUDE_BENCHMARKS=OFF				\
+		-DLIBCXX_INSTALL_LIBRARY_DIR=/usr/lib			\
+		-DLIBCXXABI_INSTALL_LIBRARY_DIR=/usr/lib		\
+		-DLIBCXXABI_USE_COMPILER_RT=ON				\
+		-DLLVM_ENABLE_RUNTIMES="libunwind;libcxx;libcxxabi"	\
+		-DLLVM_RUNTIME_TARGETS="$(HOST)"			\
+		-DLLVM_ENABLE_LIBCXX=ON					\
+		-DHAVE_CXX_ATOMICS_WITHOUT_LIB=ON
+
+	+ $(call s1) cmake --build $W/llvm-runtime-build
+	+ $(call s1) DESTDIR="$O" cmake --install $W/llvm-runtime-build
+
+	$(call done)

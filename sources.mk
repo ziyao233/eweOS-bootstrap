@@ -22,6 +22,8 @@ XCRYPT_V	:= 4.4.38
 XCRYPT_FILE	:= libxcrypt-$(XCRYPT_V).tar.xz
 ZLIB_NG_V	:= 2.2.5
 ZLIB_NG_FILE	:= zlib-ng-$(ZLIB_NG_V).tar.gz
+ZSTD_V		:= 1.5.7
+ZSTD_FILE	:= zstd-$(ZSTD_V).tar.gz
 
 BASH_URL	:= http://ftpmirror.gnu.org/gnu/bash/$(BASH_FILE)
 BUSYBOX_URL	:= https://www.busybox.net/downloads/$(BUSYBOX_FILE)
@@ -35,6 +37,7 @@ READLINE_URL	:= http://ftpmirror.gnu.org/gnu/readline/$(READLINE_FILE)
 UCONTEXT_URL	:= https://distfiles.dereferenced.org/libucontext/$(UCONTEXT_FILE)
 XCRYPT_URL	:= https://github.com/besser82/libxcrypt/releases/download/v$(XCRYPT_V)/$(XCRYPT_FILE)
 ZLIB_NG_URL	:= https://github.com/zlib-ng/zlib-ng/archive/refs/tags/$(ZLIB_NG_V).tar.gz
+ZSTD_URL	:= https://github.com/facebook/zstd/releases/download/v$(ZSTD_V)/$(ZSTD_FILE)
 
 $W/%.download:
 	curl -L $($(*F)_URL) -o $W/$($(*F)_FILE)

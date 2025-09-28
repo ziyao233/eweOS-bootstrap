@@ -1,3 +1,5 @@
+ATTR_V		:= 2.5.2
+ATTR_FILE	:= attr-$(ATTR_V).tar.xz
 BASH_V		:= 5.2.37
 BASH_FILE	:= bash-$(BASH_V).tar.gz
 BINUTILS_V	:= 2.44
@@ -35,6 +37,7 @@ ZLIB_NG_FILE	:= zlib-ng-$(ZLIB_NG_V).tar.gz
 ZSTD_V		:= 1.5.7
 ZSTD_FILE	:= zstd-$(ZSTD_V).tar.gz
 
+ATTR_URL	:= https://download.savannah.gnu.org/releases/attr/$(ATTR_FILE)
 BASH_URL	:= http://ftpmirror.gnu.org/gnu/bash/$(BASH_FILE)
 BINUTILS_URL	:= https://ftpmirror.gnu.org/gnu/binutils/$(BINUTILS_FILE)
 BUSYBOX_URL	:= https://www.busybox.net/downloads/$(BUSYBOX_FILE)

@@ -2,6 +2,8 @@ BASH_V		:= 5.2.37
 BASH_FILE	:= bash-$(BASH_V).tar.gz
 BUSYBOX_V	:= 1.37.0
 BUSYBOX_FILE	:= busybox-$(BUSYBOX_V).tar.bz2
+HWLOC_V		:= 2.12.2
+HWLOC_FILE	:= hwloc-$(HWLOC_V).tar.bz2
 LINUX_V		:= 6.16.7
 LINUX_FILE	:= linux-$(LINUX_V).tar.xz
 LLVM_V		:= 20.1.8
@@ -27,6 +29,7 @@ ZSTD_FILE	:= zstd-$(ZSTD_V).tar.gz
 
 BASH_URL	:= http://ftpmirror.gnu.org/gnu/bash/$(BASH_FILE)
 BUSYBOX_URL	:= https://www.busybox.net/downloads/$(BUSYBOX_FILE)
+HWLOC_URL	:= https://www.open-mpi.org/software/hwloc/v$(basename $(HWLOC_V))/downloads/$(HWLOC_FILE)
 LINUX_URL	:= https://cdn.kernel.org/pub/linux/kernel/v6.x/$(LINUX_FILE)
 LLVM_URL	:= https://github.com/llvm/llvm-project/archive/refs/tags/$(LLVM_FILE)
 MAKE_URL	:= http://ftpmirror.gnu.org/gnu/make/$(MAKE_FILE)

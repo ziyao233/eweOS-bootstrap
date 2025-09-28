@@ -8,12 +8,15 @@ MUSL_V		:= 1.2.5
 MUSL_FILE	:= musl-$(MUSL_V).tar.gz
 NCURSES_V	:= 6.5
 NCURSES_FILE	:= ncurses-$(NCURSES_V).tar.gz
+READLINE_V	:= 8.3
+READLINE_FILE	:= readline-$(READLINE_V).tar.gz
 
 BUSYBOX_URL	:= https://www.busybox.net/downloads/$(BUSYBOX_FILE)
 LINUX_URL	:= https://cdn.kernel.org/pub/linux/kernel/v6.x/$(LINUX_FILE)
 LLVM_URL	:= https://github.com/llvm/llvm-project/archive/refs/tags/$(LLVM_FILE)
 MUSL_URL	:= http://www.etalabs.net/musl/releases/$(MUSL_FILE)
 NCURSES_URL	:= http://ftpmirror.gnu.org/gnu/ncurses/$(NCURSES_FILE)
+READLINE_URL	:= http://ftpmirror.gnu.org/gnu/readline/$(READLINE_FILE)
 
 $W/%.download:
 	curl -L $($(*F)_URL) -o $W/$($(*F)_FILE)

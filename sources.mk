@@ -1,5 +1,7 @@
 BASH_V		:= 5.2.37
 BASH_FILE	:= bash-$(BASH_V).tar.gz
+BINUTILS_V	:= 2.44
+BINUTILS_FILE	:= binutils-$(BINUTILS_V).tar.xz
 BUSYBOX_V	:= 1.37.0
 BUSYBOX_FILE	:= busybox-$(BUSYBOX_V).tar.bz2
 HWLOC_V		:= 2.12.2
@@ -32,6 +34,7 @@ ZSTD_V		:= 1.5.7
 ZSTD_FILE	:= zstd-$(ZSTD_V).tar.gz
 
 BASH_URL	:= http://ftpmirror.gnu.org/gnu/bash/$(BASH_FILE)
+BINUTILS_URL	:= https://ftpmirror.gnu.org/gnu/binutils/$(BINUTILS_FILE)
 BUSYBOX_URL	:= https://www.busybox.net/downloads/$(BUSYBOX_FILE)
 HWLOC_URL	:= https://www.open-mpi.org/software/hwloc/v$(basename $(HWLOC_V))/downloads/$(HWLOC_FILE)
 LINUX_URL	:= https://cdn.kernel.org/pub/linux/kernel/v6.x/$(LINUX_FILE)

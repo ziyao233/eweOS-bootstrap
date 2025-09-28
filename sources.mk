@@ -1,3 +1,5 @@
+BASH_V		:= 5.2.37
+BASH_FILE	:= bash-$(BASH_V).tar.gz
 BUSYBOX_V	:= 1.37.0
 BUSYBOX_FILE	:= busybox-$(BUSYBOX_V).tar.bz2
 LINUX_V		:= 6.16.7
@@ -11,6 +13,7 @@ NCURSES_FILE	:= ncurses-$(NCURSES_V).tar.gz
 READLINE_V	:= 8.3
 READLINE_FILE	:= readline-$(READLINE_V).tar.gz
 
+BASH_URL	:= http://ftpmirror.gnu.org/gnu/bash/$(BASH_FILE)
 BUSYBOX_URL	:= https://www.busybox.net/downloads/$(BUSYBOX_FILE)
 LINUX_URL	:= https://cdn.kernel.org/pub/linux/kernel/v6.x/$(LINUX_FILE)
 LLVM_URL	:= https://github.com/llvm/llvm-project/archive/refs/tags/$(LLVM_FILE)

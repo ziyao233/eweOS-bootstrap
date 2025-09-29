@@ -3,7 +3,8 @@ $W/stage1.mold.extract: $W/MOLD.download
 	$(call done)
 
 $W/stage1.mold: $W/stage1.mold.extract \
-	$W/stage1.cxx-runtime $W/stage1.zlib-ng $W/stage1.zstd
+	$W/stage1.cxx-runtime $W/stage1.zlib-ng $W/stage1.zstd \
+	$W/stage1.onetbb
 
 	$(call s1) LDFLAGS="$(LDFLAGS) -Wl,-z,stack-size=1048576" \
 	cmake -S $W/mold-$(MOLD_V) \

@@ -20,5 +20,6 @@ $W/stage1.libarchive: $W/stage1.libarchive.extract \
 	+ $(call s1) make -C $W/libarchive-$(LIBARCHIVE_V) install DESTDIR="$O"
 
 	ln -s bsdtar "$O"/usr/bin/tar
+	rm "$O"/usr/lib/libarchive.la
 
 	$(call done)

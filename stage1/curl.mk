@@ -35,4 +35,6 @@ $W/stage1.curl: $W/stage1.curl.extract \
 	+ $(call s1) make -C $W/build-curl
 	+ $(call s1) make -C $W/build-curl install DESTDIR="$O"
 
+	rm "$O"/usr/lib/libcurl.la
+
 	$(call done)

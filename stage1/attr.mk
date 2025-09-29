@@ -18,4 +18,6 @@ $W/stage1.attr: $W/stage1.attr.patch $W/stage1.c-runtime
 	+ $(call s1) make -C $W/attr-$(ATTR_V)
 	+ $(call s1) make -C $W/attr-$(ATTR_V) install DESTDIR="$O"
 
+	rm $O/usr/lib/libattr.la
+
 	$(call done)

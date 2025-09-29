@@ -14,4 +14,6 @@ $W/stage1.acl: $W/stage1.acl.extract $W/stage1.c-runtime $W/stage1.attr
 	+ $(call s1) make -C $W/acl-$(ACL_V)
 	+ $(call s1) make -C $W/acl-$(ACL_V) install DESTDIR="$O"
 
+	rm $O/usr/lib/libacl.la
+
 	$(call done)

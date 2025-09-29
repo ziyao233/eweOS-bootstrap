@@ -11,4 +11,6 @@ $W/stage1.xz: $W/stage1.xz.extract $W/stage1.c-runtime
 	+ $(call s1) make -C $W/xz-$(XZ_V)
 	+ $(call s1) make -C $W/xz-$(XZ_V) install DESTDIR="$O"
 
+	rm "$O"/usr/lib/liblzma.la
+
 	$(call done)

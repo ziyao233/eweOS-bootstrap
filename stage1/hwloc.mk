@@ -19,4 +19,6 @@ $W/stage1.hwloc: $W/stage1.hwloc.conf $W/stage1.c-runtime
 	+ $(call s1) make -C $W/hwloc-$(HWLOC_V)
 	+ $(call s1) make -C $W/hwloc-$(HWLOC_V) install DESTDIR="$O"
 
+	rm "$O"/usr/lib/libhwloc.la
+
 	$(call done)

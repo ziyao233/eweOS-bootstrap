@@ -18,4 +18,6 @@ $W/stage1.pkgconf: $W/stage1.pkgconf.extract $W/stage1.c-runtime
 
 	ln -s pkgconf $O/usr/bin/pkg-config
 
+	rm "$O"/usr/lib/libpkgconf.la
+
 	$(call done)

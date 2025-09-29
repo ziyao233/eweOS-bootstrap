@@ -22,7 +22,7 @@ CHOST := $(CBUILDHOST)
 include sources.mk
 
 S1CFLAGS	:= -Os -pipe
-S1LDFLAGS	:= -resource-dir=$O/usr/lib/clang/20/
+S1LDFLAGS	:=
 
 S1PREDEFINED	:= CFLAGS="$(S1CFLAGS)"
 S1PREDEFINED	:= LDFLAGS="$(S1LDFLAGS)"

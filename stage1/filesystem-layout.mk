@@ -1,7 +1,9 @@
 $W/stage1.filesystem-layout:
-	ln -s /usr/bin		$O/bin
-	ln -s /usr/lib		$O/lib
-	ln -s /usr/bin		$O/sbin
+	install -dm 755 "$O"/usr
+
+	ln -s usr/bin		$O/bin
+	ln -s usr/lib		$O/lib
+	ln -s usr/bin		$O/sbin
 	ln -s bin		$O/usr/sbin
 
 	install -dm 755 "$O"/{home,mnt,srv,run,opt}

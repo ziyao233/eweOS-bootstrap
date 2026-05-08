@@ -6,7 +6,7 @@ This set of scripts aim to provide automatic bootstrap facilities for eweOS.
 
 - `base` and `base-devel`: Supported
 - `python` packages: TODO
-- `rust`: TODO
+- `rust`: Cross-compilation only
 - `ghc`: TODO
 - `golang`: TODO
 - ... and more?
@@ -65,3 +65,44 @@ done < ../stage3/packages
 `stage3/build.sh` applies `stage3/<PKGNAME>.patch` if it exists when building
 a package, which is useful if patching mainline build scripts is necessary for
 breaking dependency loops or minimizing dependencies.
+
+
+### Overview of Rust bootstrap
+
+It's separated into three stages,
+
+1. Bootstrapping rustc with help of mrustc, which is a Rust compiler written in
+   C++. This step would probably be only maintained for x86_64. TODO.
+2. Cross-compiling Rustc from one architecture to another. Available.
+3. Automatically lifting Rust versions. TODO.
+
+Related scripts are located in `rust/`.
+
+#### Cross-compiling Rustc
+
+`rust/cross-build.sh` serves for the purpose, which accepts three arguments,
+
+```
+# Provide absolute path for <TARGET_ROOTFS>
+./cross-build.sh <TARGET_ARCH> <RUSTC_VERSION> <TARGET_ROOTFS>
+```
+
+and respects `JOBS` environment variable.
+
+This script automatically downloads rustc sources, wraps `clang` as a C/C++
+compiler on `<TARGET_ROOTFS>`, generates `config.toml` bootstrapping
+configuration for rustc, and builds it. Patches (ended with `.patch`) in
+`rust/patches/<RUSTC_VERSION>` will be applied to rustc source before building.
+
+The following packages must be available on the build side,
+
+- `rustc`: Please note that rustc could only be bootstrapped with compiler
+	   exactly one version earlier or with the same version.
+- `qemu-user` for `<TARGET_ARCH>`: Required for wrapping target `llvm-config`.
+- `zstd`
+- `curl`
+- `llvm`
+
+The following packages must be available on the build/target rootfs,
+
+- `llvm`

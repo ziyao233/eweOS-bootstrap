@@ -1,0 +1,12 @@
+diff --git a/compiler/rustc_target/src/spec/base/linux_musl.rs b/compiler/rustc_target/src/spec/base/linux_musl.rs
+index 9321f45..f2a0f37 100644
+--- a/compiler/rustc_target/src/spec/base/linux_musl.rs
++++ b/compiler/rustc_target/src/spec/base/linux_musl.rs
+@@ -4,6 +4,7 @@ pub(crate) fn opts() -> TargetOptions {
+     TargetOptions {
+         env: Env::Musl,
+         crt_static_default: false,
++        no_default_libraries: false,
+         ..base::linux::opts()
+     }
+ }

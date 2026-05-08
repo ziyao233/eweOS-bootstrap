@@ -1,0 +1,47 @@
+From 8fb6e48f874e93554aa5104eab9a10de8cf00056 Mon Sep 17 00:00:00 2001
+From: Yao Zi <me@ziyao.cc>
+Date: Sun, 26 Apr 2026 12:35:41 +0000
+Subject: [PATCH] bootstrap: llvm: Build llvm-tblgen from scratch
+
+Since the executable on the host might not match the version required
+to build Rust-shipped LLVM, causing compilation errors because of
+unrecognized arguments.
+
+Signed-off-by: Yao Zi <me@ziyao.cc>
+---
+ src/bootstrap/src/core/build_steps/llvm.rs | 12 ------------
+ 1 file changed, 12 deletions(-)
+
+diff --git a/src/bootstrap/src/core/build_steps/llvm.rs b/src/bootstrap/src/core/build_steps/llvm.rs
+index 1c15edc53dac..1deda69c8b02 100644
+--- a/src/bootstrap/src/core/build_steps/llvm.rs
++++ b/src/bootstrap/src/core/build_steps/llvm.rs
+@@ -484,10 +484,6 @@ impl Step for Llvm {
+                     .run_capture_stdout(builder)
+                     .stdout();
+                 let host_bin = Path::new(llvm_bindir.trim());
+-                cfg.define(
+-                    "LLVM_TABLEGEN",
+-                    host_bin.join("llvm-tblgen").with_extension(EXE_EXTENSION),
+-                );
+                 // LLVM_NM is required for cross compiling using MSVC
+                 cfg.define("LLVM_NM", host_bin.join("llvm-nm").with_extension(EXE_EXTENSION));
+             }
+@@ -1273,14 +1269,6 @@ impl Step for Lld {
+             .define("LLVM_CMAKE_DIR", llvm_cmake_dir)
+             .define("LLVM_INCLUDE_TESTS", "OFF");
+ 
+-        if !builder.config.is_host_target(target) {
+-            // Use the host llvm-tblgen binary.
+-            cfg.define(
+-                "LLVM_TABLEGEN_EXE",
+-                host_llvm_config.with_file_name("llvm-tblgen").with_extension(EXE_EXTENSION),
+-            );
+-        }
+-
+         cfg.build();
+ 
+         t!(lld_stamp.write());
+-- 
+2.53.0
+

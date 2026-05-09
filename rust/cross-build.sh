@@ -228,15 +228,13 @@ llvm-config = "$PWD/llvm-config-host"
 EOF
 
 progress "Building Rust"
-env \
-	RUST_BACKTRACE=1				\
-	PKG_CONFIG_PATH="$rootfs/usr/lib/pkgconfig"	\
-	PKG_CONFIG_SYSROOT_DIR="$rootfs"		\
+export RUST_BACKTRACE=1
+export PKG_CONFIG_PATH="$rootfs/usr/lib/pkgconfig"
+export PKG_CONFIG_SYSROOT_DIR="$rootfs"
 python "rustc-$rustver-src"/x.py build -j$JOBS || exit 1
 
-
 progress "Installing Rust toolchain files"
-DESTDIR="$PWD/install" python "$rustc-$rustver-src"/x.py install -j$JOBS ||
+DESTDIR="$PWD/install" python "rustc-$rustver-src"/x.py install -j$JOBS ||
 	exit 1
 
 progress "Collecting toolchain tarball"

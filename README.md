@@ -106,3 +106,5 @@ The following packages must be available on the build side,
 The following packages must be available on the build/target rootfs,
 
 - `llvm`
+- `libgit2`
+- `libssh2`

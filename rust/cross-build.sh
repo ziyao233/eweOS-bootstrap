@@ -74,7 +74,7 @@ progress "Uncompressing Rust source"
 tar xf "rust-$rustver.tar.gz"
 
 progress "Applying patches"
-for p in `find "$patchdir" -name '*.patch'`; do
+for p in `find "$patchdir" -name '*.patch' | sort`; do
 	info "Applying $p"
 	patch -p1 -d "rustc-$rustver-src" < "$p" || exit 1
 done
